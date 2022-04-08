@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-export const AppContainer = styled.div`
+export const FormContainer = styled.div`
   font-size: 1.6rem;
   color: white;
-  width: 400px;
+  width: 100vw;
+  padding: 1rem;
+  @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
+    width: 40rem;
+    margin: 0 auto;
+  }
 `;
 
 export const Header = styled.div`
@@ -17,9 +22,10 @@ export const Header = styled.div`
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   font-size: 1.4rem;
-  & > h3 {
-    text-shadow: 0px 1px 2px #000;
-  }
+`;
+
+export const HeaderText = styled.h3`
+  text-shadow: 0px 1px 2px #000;
 `;
 
 export const Body = styled.form`
@@ -40,6 +46,8 @@ export const Input = styled.div`
 
 export const InputIcon = styled.img`
   position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
   top: 0;
   right: 0;
   margin: 12px;
@@ -70,4 +78,5 @@ export const SubmitBtn = styled.button`
   color: white;
   font-weight: bold;
   text-shadow: 0px 1px 2px #000;
+  cursor: pointer;
 `;

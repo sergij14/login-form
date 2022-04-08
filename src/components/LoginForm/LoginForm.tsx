@@ -1,8 +1,9 @@
 import React from "react";
 import {
-  AppContainer,
   Body,
+  FormContainer,
   Header,
+  HeaderText,
   Input,
   InputField,
   InputIcon,
@@ -11,22 +12,22 @@ import {
 
 const LoginForm = () => {
   return (
-    <AppContainer>
+    <FormContainer>
       <Header>
-        <h3>Login form</h3>
+        <HeaderText>Login Form</HeaderText>
       </Header>
       <Body>
         <Input>
           <InputField type="text" placeholder="Username" />
-          <InputIcon src="user.svg" alt="" />
+          <InputIcon src="/images/user.svg" alt="" />
         </Input>
         <Input>
           <InputField type="password" placeholder="Password" />
-          <InputIcon src="locked.svg" alt="" />
+          <InputIcon src="/images/locked.svg" alt="" />
         </Input>
         <SubmitBtn type="submit">Log In</SubmitBtn>
       </Body>
-    </AppContainer>
+    </FormContainer>
   );
 };
 
