@@ -1,10 +1,11 @@
 import { Dispatch } from "redux";
 import { getErrorMessage } from "../../utils/getErrorMessage";
+import { isValidUser } from "../../utils/isValidUser";
 import { AuthState } from "../reducers/types";
 import { Action, ActionType, LoginFormData } from "./types";
 
 const fakeRequest = (data: LoginFormData) => new Promise<AuthState['data']>((resolve, reject) => {
-  if (data.email === "frontend@isawesome.com" && data?.password === "cool") {
+  if (isValidUser(data.email,data.password)) {
     resolve({ email: data.email, loggedIn: true });
   } else {
     reject("Incorrect credentials");
@@ -23,8 +24,8 @@ export const logIn = (data: LoginFormData) => {
         type: ActionType.LOGIN_REQ_SUCCESS,
         payload: userData,
       });
-      const loggedInUserData = {...data, loggedIn: true}
-      localStorage.setItem("userData", JSON.stringify(loggedInUserData));
+
+      localStorage.setItem("userData", JSON.stringify(data));
     } catch (error) {
       dispatch({
         type: ActionType.LOGIN_REQ_ERROR,
