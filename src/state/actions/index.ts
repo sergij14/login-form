@@ -23,6 +23,8 @@ export const logIn = (data: LoginFormData) => {
         type: ActionType.LOGIN_REQ_SUCCESS,
         payload: userData,
       });
+      const loggedInUserData = {...data, loggedIn: true}
+      localStorage.setItem("userData", JSON.stringify(loggedInUserData));
     } catch (error) {
       dispatch({
         type: ActionType.LOGIN_REQ_ERROR,
