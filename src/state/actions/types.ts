@@ -11,13 +11,15 @@ interface LoginSuccessAction {
 
 interface LoginErrorAction {
   type: ActionType.LOGIN_REQ_ERROR;
-  payload: AuthState["error"];
+  payload: string,
 }
 
-export type Action =
-  | LoginAction
-  | LoginErrorAction
-  | LoginSuccessAction;
+export interface LoginFormData {
+  email: string;
+  password: string;
+}
+
+export type Action = LoginAction | LoginErrorAction | LoginSuccessAction;
 
 export enum ActionType {
   LOGIN_REQ = "LOGIN_REQ",

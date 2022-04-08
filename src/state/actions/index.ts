@@ -1,25 +1,33 @@
 import { Dispatch } from "redux";
 import { getErrorMessage } from "../../utils/getErrorMessage";
-import { Action, ActionType } from "./types";
+import { AuthState } from "../reducers/types";
+import { Action, ActionType, LoginFormData } from "./types";
 
-export const logIn = (data: { email: string; password: string }) => {
+const fakeRequest = (data: LoginFormData) => new Promise<AuthState['data']>((resolve, reject) => {
+  if (data.email === "frontend@isawesome.com" && data?.password === "cool") {
+    resolve({ email: data.email, loggedIn: true });
+  } else {
+    reject("Incorrect credentials");
+  }
+})
+
+export const logIn = (data: LoginFormData) => {
   // using Dispatch and providing Action type to have typed dispatch
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.LOGIN_REQ,
     });
-    if (
-      data.email === "frontend@isawesome.com" &&
-      data.password === "cool"
-    ) {
+    try {
+      const userData = await fakeRequest(data);
       dispatch({
         type: ActionType.LOGIN_REQ_SUCCESS,
-        payload: { email: data.email, loggedIn: true },
+        payload: userData,
+      });
+    } catch (error) {
+      dispatch({
+        type: ActionType.LOGIN_REQ_ERROR,
+        payload: getErrorMessage(error),
       });
     }
-    dispatch({
-      type: ActionType.LOGIN_REQ_ERROR,
-      payload: getErrorMessage("Incorrect credentials"),
-    });
   };
 };

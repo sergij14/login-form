@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Body,
   FormContainer,
@@ -7,15 +8,17 @@ import {
   Input,
   InputError,
   InputField,
+  InputGeneralError,
   InputIcon,
   SubmitBtn,
 } from "./LoginForm.styles";
 import useLoginForm from "./useLoginForm";
 
 const LoginForm = () => {
-  const { submitHanlder, register, errors } = useLoginForm();
+  const { handleSubmit, onSubmit, register, errors, error } = useLoginForm();
+
   return (
-    <FormContainer onSubmit={submitHanlder}>
+    <FormContainer onSubmit={ handleSubmit(onSubmit) }>
       <Header>
         <HeaderText>Login Form</HeaderText>
       </Header>
@@ -29,7 +32,10 @@ const LoginForm = () => {
           <InputField type="password" placeholder="Password..."  {...register("password")} />
           <InputIcon src="/images/locked.svg" alt="" />
           {errors.password && <InputError>{errors.password.message}</InputError>}
+
         </Input>
+        {error && <InputGeneralError>{error}</InputGeneralError>}
+
         <SubmitBtn type="submit">Log In</SubmitBtn>
       </Body>
     </FormContainer>

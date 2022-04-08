@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FormContainer = styled.div`
   font-size: 1.6rem;
@@ -28,10 +28,18 @@ export const HeaderText = styled.h3`
   text-shadow: 0px 1px 2px #000;
 `;
 
-export const InputError = styled.p`
+const errorCommon = () => css`
   color: #ff6363;
+  font-size: 1.3rem;
+`;
+
+export const InputError = styled.p`
+  ${errorCommon};
   margin-top: 1rem;
-  font-size:1.3rem;
+`;
+
+export const InputGeneralError = styled.p`
+  ${errorCommon};
 `;
 
 export const Body = styled.form`
@@ -85,4 +93,11 @@ export const SubmitBtn = styled.button`
   font-weight: bold;
   text-shadow: 0px 1px 2px #000;
   cursor: pointer;
+  transition: all 200ms ease-in-out;
+  &:hover {
+    transform: translateY(-3px);
+  }
+  &:active {
+    transform: translateY(-1px);
+  }
 `;
