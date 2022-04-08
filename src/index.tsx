@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import LoginForm from "./components/LoginForm/LoginForm";
+import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./state";
 import { GlobalStyle, theme } from "./styles";
@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <LoginForm />
+      <App/>
     </ThemeProvider>
   </Provider>,
   document.getElementById("root")

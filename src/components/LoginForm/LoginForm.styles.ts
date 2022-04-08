@@ -1,10 +1,6 @@
 import styled, { css } from "styled-components";
 
 export const FormContainer = styled.div`
-  font-size: 1.6rem;
-  color: white;
-  width: 100vw;
-  padding: 1rem;
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
     width: 40rem;
     margin: 0 auto;

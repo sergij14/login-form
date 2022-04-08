@@ -21,18 +21,16 @@ export default function useLoginForm() {
     reValidateMode: "onChange",
   });
 
-  const { data, error } = useTypedSelector((state) => state.auth);
+  const { error } = useTypedSelector((state) => state.auth);
   const {logIn } = useActions();
 
   const onSubmit = (data: LoginFormData) => logIn(data)
-
 
   return {
     handleSubmit,
     onSubmit,
     register,
     errors,
-    data,
     error,
   };
 }
