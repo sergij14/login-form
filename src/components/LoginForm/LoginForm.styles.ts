@@ -28,6 +28,12 @@ export const HeaderText = styled.h3`
   text-shadow: 0px 1px 2px #000;
 `;
 
+export const InputError = styled.p`
+  color: #ff6363;
+  margin-top: 1rem;
+  font-size:1.3rem;
+`;
+
 export const Body = styled.form`
   background-color: #f2f2f2;
   color: #78517b;
@@ -57,7 +63,7 @@ export const InputField = styled.input`
   background-color: #f0eef0;
   border-radius: 5px;
   border: 1px #dfdfdf solid;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding: 1.2rem 1.6rem;
   outline: 1px #fbfbfb solid;
   width: 100%;
@@ -73,7 +79,7 @@ export const SubmitBtn = styled.button`
   align-self: flex-start;
   border: none;
   outline: none;
-  font-size: 12px;
+  font-size: 1.4rem;
   padding: 1rem 2rem;
   color: white;
   font-weight: bold;
