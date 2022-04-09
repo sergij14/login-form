@@ -68,7 +68,7 @@ export const InputField = styled.input`
   border-radius: 5px;
   border: 1px #dfdfdf solid;
   font-size: 1.4rem;
-  padding: 1.2rem 1.6rem;
+  padding: 1.2rem 4rem 1.2rem 1.6rem;
   outline: 1px #fbfbfb solid;
   width: 100%;
 `;
