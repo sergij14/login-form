@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { checkUserInLS } from "../../utils/checkUserInLS";
 import LoginForm from "../LoginForm/LoginForm";
@@ -9,6 +10,10 @@ const App = () => {
   const GreetingJSX = () => <Greeting>Hello, you are now logged in</Greeting>;
 
   const Component = data?.loggedIn || checkUserInLS() ? GreetingJSX : LoginForm;
+
+  useEffect(() => {
+    console.log('mail: "frontend@isawesome.com"', 'password: "cool"');
+  }, [])
 
   return (
     <AppContainer>
